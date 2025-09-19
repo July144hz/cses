@@ -10,26 +10,16 @@ set<string> v;
 int main()
 {
     cin >> s;
+
     string e = s;
-    /*
-    abc
-    acb
-    bac
-    bca
-    cab
-    cba
-    */
-
-
-    // e = s;
-    for (int i = 0; i < s.size(); i++)
-    {   
-        for (int j = 0; j < s.size(); j++)
-        {
-            swap(e[i], e[j]);
-            v.insert(e);
-        }
+    v.insert(s);
+    next_permutation(e.begin(), e.end());
+    while (e != s)
+    {
+        v.insert(e);
+        next_permutation(e.begin(), e.end());
     }
+
     cout << v.size() << endl;
     for (auto i : v)
     {
